@@ -23,7 +23,7 @@ public class StartScreen : MonoBehaviour
         //check that the button has been pressed AND that the audioSource isn't running.
         if(!_audioPlayer.isPlaying && startReady)
         {
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("Main_Scene");
         }
      
     }
@@ -37,4 +37,9 @@ public class StartScreen : MonoBehaviour
         startReady = true; 
 
     }
+
+
+
+
+
 }
