@@ -16,6 +16,12 @@ public class Spell : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        Destroy(gameObject, 3f);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Target")
