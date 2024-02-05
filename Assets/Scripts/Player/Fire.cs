@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class Spell : MonoBehaviour
+public class Fire : MonoBehaviour
 {
     public float speed = 20f;
     public int damage = 20;
