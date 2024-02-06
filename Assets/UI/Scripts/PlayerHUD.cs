@@ -2,22 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHUD : MonoBehaviour
 {
     
-    
+    Image healthbar;  //the red health bar sprite
+    public Sprite earth;
+    public Sprite fire;
+    public Sprite freeze;
+    public Image currentIcon;
+    public TextMeshProUGUI spellName;
     Transform[] manaIcons; //the blue sprites that represent the player's mana; 
     [SerializeField]
     float maxHealth, maxMana; 
 
     private void Start()
     {
-        //healthbar = GameObject.Find("bar").GetComponent<Image>();
+        healthbar = GameObject.Find("bar").GetComponent<Image>();
 
         manaIcons = GameObject.Find("Mana").GetComponentsInChildren<Transform>();
     }
 
+    //value should never be set above max health
+    public void SetLife(float value)
+    {
+        Debug.Log(value);
+        healthbar.fillAmount = value / maxHealth;
+    }
+
+    public void SwapIcon(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                {
+                    currentIcon.sprite = fire;
+                    spellName.text = "Fire";
+                    break; 
+                }
+            case 1:
+                {
+                    currentIcon.sprite = freeze;
+                    spellName.text = "Freeze";
+                    break;
+                }
+            case 2:
+                {
+                    currentIcon.sprite = earth;
+                    spellName.text = "Earth";
+                    break;
+                }
+        }
+    }
     //value should never be set above max mana
     public void SetMana(float value)
     {
