@@ -23,8 +23,9 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            PlayerImpact impact = collision.gameObject.GetComponent<PlayerImpact>();
+            impact.Invincible();
+            //Destroy(gameObject);
         }
     }
 }

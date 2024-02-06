@@ -21,6 +21,7 @@ public class PlayerHUD : MonoBehaviour
     //value should never be set above max health
     public void SetLife(float value)
     {
+        Debug.Log(value);
         healthbar.fillAmount = value / maxHealth;
     }
 
