@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 60744509}
   - component: {fileID: 60744511}
   - component: {fileID: 60744512}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -363.57315, y: 253}
+  m_AnchoredPosition: {x: -154.71313, y: 162.7}
   m_SizeDelta: {x: 298.4319, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &60744509
@@ -1390,9 +1390,9 @@ GameObject:
   - component: {fileID: 348682331}
   - component: {fileID: 348682333}
   - component: {fileID: 348682332}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: fifth
-  m_TagString: Untagged
+  m_TagString: Mana
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1610,7 +1610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_Name
-      value: Enemy (8)
+      value: MeleeEnemy (8)
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_IsActive
@@ -1812,9 +1812,9 @@ GameObject:
   - component: {fileID: 465019523}
   - component: {fileID: 465019525}
   - component: {fileID: 465019524}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: fourth
-  m_TagString: Untagged
+  m_TagString: Mana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1942,7 +1942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_Name
-      value: Enemy (3)
+      value: MeleeEnemy (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_IsActive
@@ -1962,7 +1962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566482596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2230,7 +2230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_Name
-      value: Enemy (4)
+      value: MeleeEnemy (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_IsActive
@@ -2257,7 +2257,7 @@ GameObject:
   - component: {fileID: 666586608}
   - component: {fileID: 666586610}
   - component: {fileID: 666586609}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2464,7 +2464,7 @@ GameObject:
   - component: {fileID: 801472308}
   - component: {fileID: 801472307}
   - component: {fileID: 801472311}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2500,7 +2500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2520,8 +2520,8 @@ Canvas:
   m_GameObject: {fileID: 801472306}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1134754729}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2532,7 +2532,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &801472310
 RectTransform:
@@ -2586,7 +2586,7 @@ GameObject:
   - component: {fileID: 824131658}
   - component: {fileID: 824131660}
   - component: {fileID: 824131659}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2661,9 +2661,9 @@ GameObject:
   - component: {fileID: 870103585}
   - component: {fileID: 870103587}
   - component: {fileID: 870103586}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: second
-  m_TagString: Untagged
+  m_TagString: Mana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2796,7 +2796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_Name
-      value: Enemy (1)
+      value: MeleeEnemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_IsActive
@@ -2963,7 +2963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_Name
-      value: Enemy (7)
+      value: MeleeEnemy (7)
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_IsActive
@@ -3743,7 +3743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_Name
-      value: Enemy (2)
+      value: MeleeEnemy (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_IsActive
@@ -3855,9 +3855,9 @@ GameObject:
   - component: {fileID: 1191141676}
   - component: {fileID: 1191141678}
   - component: {fileID: 1191141677}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: third
-  m_TagString: Untagged
+  m_TagString: Mana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3929,7 +3929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1201383939}
   - component: {fileID: 1201383941}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Mana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3957,7 +3957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300.513, y: 225.30005}
+  m_AnchoredPosition: {x: -91.65298, y: 135.00005}
   m_SizeDelta: {x: 172.3087, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1201383941
@@ -4107,7 +4107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_Name
-      value: Enemy (6)
+      value: MeleeEnemy (6)
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_IsActive
@@ -4129,7 +4129,7 @@ GameObject:
   - component: {fileID: 1319226162}
   - component: {fileID: 1319226164}
   - component: {fileID: 1319226163}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4154,7 +4154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -562.86, y: 263.3}
+  m_AnchoredPosition: {x: -353.99997, y: 173}
   m_SizeDelta: {x: -527.99, y: 84.47107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319226163
@@ -4296,9 +4296,9 @@ GameObject:
   - component: {fileID: 1333264664}
   - component: {fileID: 1333264666}
   - component: {fileID: 1333264665}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: first
-  m_TagString: Untagged
+  m_TagString: Mana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4801,7 +4801,7 @@ GameObject:
   - component: {fileID: 1604370699}
   - component: {fileID: 1604370701}
   - component: {fileID: 1604370700}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5049,7 +5049,7 @@ GameObject:
   - component: {fileID: 1648787017}
   - component: {fileID: 1648787022}
   - component: {fileID: 1648787023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5534,7 +5534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_Name
-      value: Enemy (5)
+      value: MeleeEnemy (5)
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_IsActive
@@ -5725,7 +5725,7 @@ GameObject:
   - component: {fileID: 1857935130}
   - component: {fileID: 1857935132}
   - component: {fileID: 1857935131}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6164,7 +6164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2091238934}
   - component: {fileID: 2091238935}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpellPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6373,21 +6373,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3638443568736689299, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.4700003
+    - target: {fileID: 2481925251129987425, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3638443568736689299, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 4537176118602790014, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 4537176118602790014, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.8599997
+    - target: {fileID: 2481925251129987425, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 4991950954164357802, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6431,11 +6423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
       propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283150903321319105, guid: 2e33e7582ece5984090bf60b25f55d85, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: MeleeEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

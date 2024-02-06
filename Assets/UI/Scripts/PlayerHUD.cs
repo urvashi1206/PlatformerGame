@@ -15,13 +15,16 @@ public class PlayerHUD : MonoBehaviour
     public TextMeshProUGUI spellName;
     Transform[] manaIcons; //the blue sprites that represent the player's mana; 
     [SerializeField]
-    float maxHealth, maxMana; 
+    float maxHealth, maxMana;
+    GameObject[] manaObjects;
+
 
     private void Start()
     {
-        healthbar = GameObject.Find("bar").GetComponent<Image>();
+        //healthbar = GameObject.Find("bar").GetComponent<Image>();
 
-        manaIcons = GameObject.Find("Mana").GetComponentsInChildren<Transform>();
+        //manaIcons = GameObject.Find("Mana").GetComponentsInChildren<Transform>();
+        //manaObjects = GameObject.FindGameObjectsWithTag("Mana");
     }
 
     //value should never be set above max health
@@ -58,17 +61,18 @@ public class PlayerHUD : MonoBehaviour
     //value should never be set above max mana
     public void SetMana(float value)
     {
-        //show all stars first
-        foreach (Transform child in manaIcons)
+/*        //show all stars first, Check if there's mana icon
+
+        foreach (GameObject child in manaObjects)
         {
-            child.gameObject.SetActive(true);
+            child.SetActive(true);
         }
 
         //i subtracted by 1 to prevent out of bounds errors
         for (int i = (int)maxMana; i > value; i--)
         {
-            manaIcons[i].gameObject.SetActive(false);
-        }
+            manaObjects[i].SetActive(false);
+        }*/
     }
 
 }

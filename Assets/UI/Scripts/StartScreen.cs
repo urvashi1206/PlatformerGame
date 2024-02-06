@@ -10,7 +10,9 @@ public class StartScreen : MonoBehaviour
     AudioSource _audioPlayer;
     private bool startReady = false;
     [SerializeField]
-    GameObject startButton; 
+    GameObject startButton;
+
+    public string startSceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +22,11 @@ public class StartScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //check that the button has been pressed AND that the audioSource isn't running.
+/*        //check that the button has been pressed AND that the audioSource isn't running.
         if(!_audioPlayer.isPlaying && startReady)
         {
             SceneManager.LoadScene("Main_Scene");
-        }
+        }*/
      
     }
 
@@ -34,8 +36,8 @@ public class StartScreen : MonoBehaviour
         //prevents player from spamming the button and preventing the game from starting (since the audio won't stop)
         startButton.GetComponent<Button>().onClick.RemoveAllListeners();
         //allows sound to fully play before switching scenes.
-        startReady = true; 
-
+        startReady = true;
+        SceneManager.LoadScene(startSceneName);
     }
 
 
