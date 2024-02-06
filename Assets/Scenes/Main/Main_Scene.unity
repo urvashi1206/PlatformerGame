@@ -1760,7 +1760,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 9
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1787,6 +1787,7 @@ MonoBehaviour:
   jumpHeight: 7
   isGrounded: 0
   speed: 7
+  gravity: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1876,7 +1877,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellPoint: {fileID: 2091238934}
   bulletPrefab: {fileID: 4386248645534479699, guid: dcb540959c3a83945ade8b952f032cd8, type: 3}
+  EarthProjectile: {fileID: 0}
+  FireProjectile: {fileID: 0}
+  FreezeProjectile: {fileID: 0}
+  currentMana: 0
+  currentHealth: 0
   manaValue: 0
+  regenSpeed: 0
 --- !u!1001 &1679092289
 PrefabInstance:
   m_ObjectHideFlags: 0
