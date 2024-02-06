@@ -5,21 +5,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     Rigidbody2D rb;
+    Camera cam; 
     public float jumpHeight = 100f;
     public bool isGrounded;
+    private float jumpCount = 0;
+    private float extraJumps = 0;
     public float speed = 7.0f;
-
-    private float h_velocity;
-    private float v_velocity;
-    private float v_acceleration;
-    private float h_acceleration;
-    private float deacceleration; 
-
-    private float maxSpeed = 7.0f;
-
-    public float gravity;
-
+    float jumpCoolDown;
+    float facing; 
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform feet;
@@ -27,16 +22,24 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //keep the camera from rotating
+        float dirX = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded || jumpCount < extraJumps)
+            {
+                rb.velocity = new Vector3(0, jumpHeight, 0);
+                jumpCount++;
+            }
+        }
         CheckGrounded();
-        CheckJump();
-        CheckMove();
-        UpdateSpeed();
     }
 
     void CheckGrounded()
@@ -44,33 +47,17 @@ public class PlayerMovement : MonoBehaviour
         if (Physics2D.OverlapCircle(feet.position, 0.5f, groundLayer))
         {
             isGrounded = true;
+            jumpCount = 0;
+            jumpCoolDown = Time.time + 0.2f;
+        }
+        else if (Time.time < jumpCoolDown)
+        {
+            isGrounded = true;
         }
         else
         {
             isGrounded = false;
         }
-    }
-
-    void CheckJump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            v_velocity = jumpHeight;
-        }
-    }
-
-    void CheckMove()
-    {
-        int jump  = Input.GetAxisRaw("Horizontal");
-    }
-
-    void UpdateSpeed()
-    {
-        //apply negating forces
-    
-        v_velocity += v_acceleration;
-        h_velocity += h_acceleration;
-     
     }
 }
 
