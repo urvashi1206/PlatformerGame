@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 1604370701}
   - component: {fileID: 1604370700}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2154,6 +2154,7 @@ MonoBehaviour:
   FireProjectile: {fileID: 4386248645534479699, guid: dcb540959c3a83945ade8b952f032cd8, type: 3}
   FreezeProjectile: {fileID: 4386248645534479699, guid: dcb540959c3a83945ade8b952f032cd8, type: 3}
   currentMana: 0
+  currentHealth: 0
   manaValue: 0
   isRegenerating: 1
   regenThreshold: 3

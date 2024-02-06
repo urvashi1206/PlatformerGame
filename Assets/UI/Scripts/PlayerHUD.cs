@@ -21,10 +21,10 @@ public class PlayerHUD : MonoBehaviour
 
     private void Start()
     {
-        //healthbar = GameObject.Find("bar").GetComponent<Image>();
+        healthbar = GameObject.Find("Fill").GetComponent<Image>();
 
-        //manaIcons = GameObject.Find("Mana").GetComponentsInChildren<Transform>();
-        //manaObjects = GameObject.FindGameObjectsWithTag("Mana");
+        manaIcons = GameObject.Find("Mana").GetComponentsInChildren<Transform>();
+        manaObjects = GameObject.FindGameObjectsWithTag("Mana");
     }
 
     //value should never be set above max health
@@ -61,18 +61,18 @@ public class PlayerHUD : MonoBehaviour
     //value should never be set above max mana
     public void SetMana(float value)
     {
-/*        //show all stars first, Check if there's mana icon
+        //show all stars first, Check if there's mana icon
 
-        foreach (GameObject child in manaObjects)
+        foreach (Transform child in manaIcons)
         {
-            child.SetActive(true);
+            child.gameObject.SetActive(true);
         }
 
         //i subtracted by 1 to prevent out of bounds errors
         for (int i = (int)maxMana; i > value; i--)
         {
-            manaObjects[i].SetActive(false);
-        }*/
+            manaIcons[i].gameObject.SetActive(false);
+        }
     }
 
 }

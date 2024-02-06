@@ -7,11 +7,11 @@ public class EndMenu : MonoBehaviour
 {
     public void GoToMain()
     {
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("MainMenu");
     }
     public void GoToGame()
     {
-        SceneManager.LoadScene("Main_Scene");
+        SceneManager.LoadScene("LevelScene");
     }
 
 
