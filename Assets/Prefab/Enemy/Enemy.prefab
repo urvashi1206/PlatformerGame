@@ -300,6 +300,12 @@ MonoBehaviour:
   speed: 2
   pointA: {fileID: 4537176118602790014}
   pointB: {fileID: 3638443568736689299}
+  shootRange: 7
+  meleeRange: 2
+  meleeDetectRange: 5
+  meleeDamage: 20
+  enemyState: 0
+  enemyType: 1
 --- !u!50 &4990981774872568171
 Rigidbody2D:
   serializedVersion: 4
