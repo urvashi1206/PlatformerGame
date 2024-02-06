@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     Rigidbody2D rb;
+    Camera cam; 
     public float jumpHeight = 100f;
     public bool isGrounded;
     private float jumpCount = 0;
-    private float extraJumps = 2;
+    private float extraJumps = 0;
     public float speed = 7.0f;
     float jumpCoolDown;
+    float facing; 
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform feet;
@@ -19,14 +22,16 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //keep the camera from rotating
         float dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded || jumpCount < extraJumps)
             {

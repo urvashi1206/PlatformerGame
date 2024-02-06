@@ -18,7 +18,6 @@ public class PlayerSpells : MonoBehaviour
     public GameObject FireProjectile;
     public GameObject FreezeProjectile;
     public float currentMana;
-    public float currentHealth; 
     public float manaValue;
 
     //mana regeneration
