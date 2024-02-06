@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     public float meleeRange = 2.0f;
     public float meleeDetectRange = 5.0f;
 
+    public float meleeDamage = 20f;
+
     private Transform currentPoint;
 
     PlayerImpact playerImpact;
@@ -165,7 +167,7 @@ public class Enemy : MonoBehaviour
                 timer += Time.deltaTime;
                 if (timer > waitingTime)
                 {
-                    playerImpact.Invincible();
+                    playerImpact.Invincible(meleeDamage);
                     timer = 0;
                 }
                 

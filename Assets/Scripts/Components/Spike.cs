@@ -21,7 +21,7 @@ public class Spike : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             PlayerImpact impact = collision.gameObject.GetComponent<PlayerImpact>();
-            impact.Invincible();
+            impact.Invincible(100.0f);
         }
     }
 

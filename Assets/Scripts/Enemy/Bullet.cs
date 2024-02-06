@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 30f;
+    public float damage = 10.0f;
     public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             PlayerImpact impact = collision.gameObject.GetComponent<PlayerImpact>();
-            impact.Invincible();
+            impact.Invincible(damage);
             //Destroy(gameObject);
         }
     }

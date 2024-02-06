@@ -7,7 +7,7 @@ public class PlayerImpact : MonoBehaviour
 {
     private SpriteRenderer sprite;
     public int maxHealth = 100;
-    public int currentHealth;
+    public float currentHealth;
     private int flickerAmount;
     private float flickerDuration;
     private int damage;
@@ -30,9 +30,9 @@ public class PlayerImpact : MonoBehaviour
     
     }
 
-    public void Invincible()
+    public void Invincible(float damageNum)
     {
-        currentHealth -= damage;
+        currentHealth -= damageNum;
         Debug.Log(currentHealth);
         if(currentHealth <= 0 )
         {
