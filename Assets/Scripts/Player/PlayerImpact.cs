@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerImpact : MonoBehaviour
 {
     private SpriteRenderer sprite;
-    private float currentHealth;
+    public int maxHealth = 100;
+    public int currentHealth;
     private int flickerAmount;
     private float flickerDuration;
-    public float damage;
+    private int damage;
+    public HealthBar health;
     // Start is called before the first frame update
     void Start()
     {
         flickerAmount = 3;
         flickerDuration = 0.1f;
         sprite = GetComponent<SpriteRenderer>();
-        currentHealth = 100;
+        currentHealth = maxHealth;
         damage = 10;
+        health = GameObject.Find("Health").gameObject.GetComponent<HealthBar>();
+        health.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -28,12 +33,12 @@ public class PlayerImpact : MonoBehaviour
     public void Invincible()
     {
         currentHealth -= damage;
-        if(currentHealth < 0 )
+        Debug.Log(currentHealth);
+        if(currentHealth <= 0 )
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene("EndScreen");
         }
-        PlayerHUD healthAmount = gameObject.GetComponentInChildren<PlayerHUD>();
-        healthAmount.SetLife(currentHealth);
+        health.SetHealth(currentHealth);
         StartCoroutine(DamageFlicker());
     }
 
