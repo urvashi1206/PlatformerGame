@@ -6,12 +6,14 @@ using UnityEngine.U2D;
 
 public class Earth : MonoBehaviour
 {
-    public float speed = 20f;
-    public int damage = 20;
+    public float speed = 10f;
+    public int damage = 10;
     public Rigidbody2D rb;
+    public GameObject PlatformPrefab; 
     // Start is called before the first frame update
     void Start()
     {
+        this.transform.position += new Vector3(0, .25f, 0);
         //make the spell move forward
         rb.velocity = transform.right * speed;
     }
@@ -24,14 +26,28 @@ public class Earth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Target")
+        
+        if (collision.gameObject.tag == "Environment")
         {
+            Debug.Log("Wall");
+            ///spawn a standable platform where the projectile impacts
+            GameObject.Instantiate(PlatformPrefab, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+
+        }
+
+        if (collision.gameObject.tag == "Target")
+        {
+            Debug.Log("Enemy");
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
+
+
+      
     }
 }
