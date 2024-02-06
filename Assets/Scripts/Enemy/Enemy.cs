@@ -16,9 +16,13 @@ public class Enemy : MonoBehaviour
     public Transform pointA;
     public Transform pointB;
 
-    public float attackRange = 7.0f;
+    public float shootRange = 7.0f;
+    public float meleeRange = 2.0f;
+    public float meleeDetectRange = 5.0f;
 
     private Transform currentPoint;
+
+    PlayerImpact playerImpact;
 
     Rigidbody2D rb;
 
@@ -26,17 +30,28 @@ public class Enemy : MonoBehaviour
     Transform playerTransform;
 
     //EnemyState
-    EnemyState enemyState = EnemyState.Patrol;
+    public EnemyState enemyState = EnemyState.Patrol;
 
-    enum EnemyState
+    public enum EnemyType
+    {
+        ShootEnemy,
+        MeleeEnemy,
+    }
+
+    public EnemyType enemyType;
+
+    public enum EnemyState
     {
         Patrol,
         Shoot,
+        Melee,
+        ChasePlayer,
     }
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerImpact = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerImpact>(); ;
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pointB.transform;
     }
@@ -62,16 +77,29 @@ public class Enemy : MonoBehaviour
         switch(enemyState)
         {
             case EnemyState.Patrol:
-
-
-
-                //Check if shoot
-                if (playerTransform && (transform.position - playerTransform.position).magnitude < attackRange)
+                
+                //Check if attack according to different enemy type
+                switch(enemyType)
                 {
+                    case EnemyType.MeleeEnemy:
+                        if (playerTransform && (transform.position - playerTransform.position).magnitude < meleeDetectRange)
+                        {
+                            enemyState = EnemyState.ChasePlayer;
+                            return;
+                        }
+                        break;
 
-                    enemyState = EnemyState.Shoot;
-                    break;
+                    case EnemyType.ShootEnemy:
+                        if (playerTransform && (transform.position - playerTransform.position).magnitude < shootRange)
+                        {
+
+                            enemyState = EnemyState.Shoot;
+                            return;
+                        }
+
+                        break;
                 }
+
 
                 //Change face direction
                 Vector2 point = currentPoint.position - transform.position;
@@ -102,7 +130,7 @@ public class Enemy : MonoBehaviour
             case EnemyState.Shoot:
                 //For shoot bullets
 
-                if (playerTransform && (transform.position - playerTransform.position).magnitude >= attackRange)
+                if (playerTransform && (transform.position - playerTransform.position).magnitude >= shootRange)
                 {
 
                     enemyState = EnemyState.Patrol;
@@ -126,13 +154,65 @@ public class Enemy : MonoBehaviour
                 }
             break;
 
+            case EnemyState.Melee:
+                //Out of melee range
+                if (playerTransform && (transform.position - playerTransform.position).magnitude >= meleeRange)
+                {
+                    enemyState = EnemyState.Patrol;
+                    break;
+                }
+
+                timer += Time.deltaTime;
+                if (timer > waitingTime)
+                {
+                    playerImpact.Invincible();
+                    timer = 0;
+                }
+                
+                break;
+
+            case EnemyState.ChasePlayer:
+                //Out of melee range
+/*                if (playerTransform && (transform.position - playerTransform.position).magnitude >= meleeDetectRange)
+                {
+                    enemyState = EnemyState.Patrol;
+                    break;
+                }*/
+
+                if (playerTransform)
+                {
+                    Vector2 direction = playerTransform.position - transform.position;
+
+                    // Check if player is in detect range
+                    if (direction.magnitude >= meleeDetectRange)
+                    {
+                        enemyState = EnemyState.Patrol;
+                    }
+                    else if(direction.magnitude <= meleeRange)
+                    {
+                        enemyState = EnemyState.Melee;
+                    }
+                    else
+                    {
+                        if (direction.x >= 0)
+                        {
+                            transform.localScale = new Vector3(-1, 1, 1);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(1, 1, 1);
+                        }
+
+                        rb.velocity = direction.normalized * speed;
+                    }
+                }
+
+                break;
 
         }
 
-
-
-
     }
+
 }
 
 
