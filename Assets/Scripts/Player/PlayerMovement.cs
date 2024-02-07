@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -14,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private float extraJumps = 0;
     public float speed = 7.0f;
     float jumpCoolDown;
-    float facing; 
+    float facing;
+    bool facingRight = true;
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform feet;
@@ -30,7 +32,20 @@ public class PlayerMovement : MonoBehaviour
     {
         //keep the camera from rotating
         float dirX = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
+        if (dirX != 0)
+        {
+            rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
+        }
+
+        if (dirX > 0 && !facingRight) 
+        {
+            Flip();
+        }
+
+        if (dirX < 0 && facingRight)
+        {
+            Flip();
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded || jumpCount < extraJumps)
@@ -58,6 +73,15 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    void Flip()
+    {
+        Vector3 currenScale = gameObject.transform.localScale;
+        currenScale.x *= -1;
+        gameObject.transform.localScale = currenScale;
+
+        facingRight = !facingRight;
     }
 }
 
