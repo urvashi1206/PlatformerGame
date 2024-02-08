@@ -13,6 +13,11 @@ public class PauseScreen : MonoBehaviour
         playerHUD.TogglePauseGame();
     }
 
+    public void RetryGame()
+    {
+        SceneManager.LoadScene("LevelScene");
+    }
+
     public void SeeControls()
     {
         controlsScreen.SetActive(true);
