@@ -47,6 +47,12 @@ public class Earth : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        if (collision.gameObject.tag == "Bullet") 
+        {
+            Debug.Log("Firing Enemy");
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
 
       
     }

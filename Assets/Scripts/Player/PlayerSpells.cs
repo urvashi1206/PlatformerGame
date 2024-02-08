@@ -37,7 +37,7 @@ public class PlayerSpells : MonoBehaviour
         playerHud.SetMana(currentMana);
 
         //cast the Earth Spell
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetMouseButtonDown(0)) 
         {
             Cast();
         }
@@ -80,8 +80,6 @@ public class PlayerSpells : MonoBehaviour
 
             Instantiate(EarthProjectile, spellPoint.position, spellPoint.rotation);
             currentMana--;
-
-
         }
 
     }
