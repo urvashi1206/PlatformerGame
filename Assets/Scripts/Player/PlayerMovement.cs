@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 100f;
     public bool isGrounded;
     private float jumpCount = 0;
-    private float extraJumps = 0;
+    private float extraJumps = 1;
     public float speed = 7.0f;
     float jumpCoolDown;
     float facing;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) 
         {
             if (isGrounded || jumpCount < extraJumps)
             {
