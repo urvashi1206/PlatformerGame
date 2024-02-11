@@ -12,7 +12,7 @@ public class StartScreen : MonoBehaviour
     [SerializeField]
     GameObject startButton;
 
-    public string startSceneName;
+    public string introSceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class StartScreen : MonoBehaviour
         startButton.GetComponent<Button>().onClick.RemoveAllListeners();
         //allows sound to fully play before switching scenes.
         startReady = true;
-        SceneManager.LoadScene(startSceneName);
+        SceneManager.LoadScene(introSceneName);
     }
 
 

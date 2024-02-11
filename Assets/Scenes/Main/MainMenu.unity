@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 1500394994}
-  startSceneName: LevelScene
+  introSceneName: NarrativeIntro
 --- !u!1 &2048763190
 GameObject:
   m_ObjectHideFlags: 0
