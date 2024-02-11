@@ -77,11 +77,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Flip()
     {
-        Vector3 currenScale = gameObject.transform.localScale;
-        currenScale.x *= -1;
-        gameObject.transform.localScale = currenScale;
-
         facingRight = !facingRight;
+
+        /*Vector3 currenScale = gameObject.transform.localScale;
+        currenScale.x *= -1;
+        gameObject.transform.localScale = currenScale;*/
+        transform.Rotate(0f, 180f, 0f);
+
+        
     }
 }
 
