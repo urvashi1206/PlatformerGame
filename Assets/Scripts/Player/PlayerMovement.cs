@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     float jumpCoolDown;
     float facing;
     bool facingRight = true;
+    public Animator animator;
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform feet;
@@ -30,8 +31,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //keep the camera from rotating
         float dirX = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(dirX));
         if (dirX != 0)
         {
             rb.velocity = new Vector2(dirX * speed, rb.velocity.y);

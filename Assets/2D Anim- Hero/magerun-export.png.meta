@@ -126,12 +126,12 @@ TextureImporter:
       name: magerun-export_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 120
-        height: 80
+        x: 1120
+        y: 40
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: magerun-export_1
       rect:
         serializedVersion: 2
-        x: 120
+        x: 40
         y: 0
-        width: 120
-        height: 80
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: magerun-export_2
       rect:
         serializedVersion: 2
-        x: 227
+        x: 160
         y: 0
-        width: 120
-        height: 80
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: magerun-export_3
       rect:
         serializedVersion: 2
-        x: 360
+        x: 280
         y: 0
-        width: 120
-        height: 80
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: magerun-export_4
       rect:
         serializedVersion: 2
-        x: 480
+        x: 400
         y: 0
-        width: 120
-        height: 80
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: magerun-export_5
       rect:
         serializedVersion: 2
-        x: 600
+        x: 520
         y: 0
-        width: 120
-        height: 80
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: magerun-export_6
       rect:
         serializedVersion: 2
-        x: 720
+        x: 640
         y: 0
-        width: 120
-        height: 80
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: magerun-export_7
       rect:
         serializedVersion: 2
-        x: 840
+        x: 760
         y: 0
-        width: 120
-        height: 80
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: magerun-export_8
       rect:
         serializedVersion: 2
-        x: 960
+        x: 880
         y: 0
-        width: 120
-        height: 80
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: magerun-export_9
       rect:
         serializedVersion: 2
-        x: 1080
+        x: 1000
         y: 0
-        width: 120
-        height: 80
+        width: 30
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -328,6 +328,27 @@ TextureImporter:
       bones: []
       spriteID: 4f6165e5edf1e404b92eea32e4201d29
       internalID: -2072204261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magerun-export_10
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb11ac84b9b9a3c44b1fabfe63b20013
+      internalID: -1899214314
       vertices: []
       indices: 
       edges: []
@@ -345,6 +366,7 @@ TextureImporter:
     nameFileIdTable:
       magerun-export_0: -650141346
       magerun-export_1: 1206168631
+      magerun-export_10: -1899214314
       magerun-export_2: -2028931228
       magerun-export_3: -291166439
       magerun-export_4: -193561446
