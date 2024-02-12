@@ -27,7 +27,7 @@ public class Earth : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.gameObject.tag == "Environment"  || collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Environment")
         {
             Debug.Log("Wall");
             ///spawn a standable platform where the projectile impacts
