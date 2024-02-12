@@ -69,6 +69,7 @@ public class PlayerSpells : MonoBehaviour
     }
     void Cast()
     {
+        Debug.Log("pew pew");
         //shoot spell if there is mana remaining
         if (currentMana > 0)
         {

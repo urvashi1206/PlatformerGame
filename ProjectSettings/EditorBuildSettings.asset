@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main/LevelScene.unity
     guid: 4ff9207d1a9c5644da0abf26e094bb54
-  - enabled: 1
-    path: Assets/Scenes/Main/NarrativeIntro.unity
-    guid: 6cfc27fbba9c7b74b9689486436f6a5e
   m_configObjects: {}

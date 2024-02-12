@@ -9,7 +9,6 @@ TagManager:
   - Environment
   - Wall
   - Mana
-  - Platform
   layers:
   - Default
   - TransparentFX

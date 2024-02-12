@@ -32,17 +32,9 @@ public class PlayerMovement : MonoBehaviour
     {
         //keep the camera from rotating
         float dirX = Input.GetAxisRaw("Horizontal");
-
-        float trueSpeed = dirX * speed;
-
-        if (!isGrounded)
-        {
-            trueSpeed *= .75f;
-        }
-
         if (dirX != 0)
         {
-            rb.velocity = new Vector2(trueSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
         }
 
         if (dirX > 0 && !facingRight) 

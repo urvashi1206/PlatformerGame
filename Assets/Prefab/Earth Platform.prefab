@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4045955467298352901}
   m_Layer: 3
   m_Name: Earth Platform
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,4 +171,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a08e41861f4e34840886a15c4c2afa30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
