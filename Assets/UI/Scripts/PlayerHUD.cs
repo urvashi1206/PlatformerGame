@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class PlayerHUD : MonoBehaviour
 {
     
-    Image healthbar;  //the red health bar sprite
+    public Slider healthbar;  //the red health bar sprite
     public Sprite earth;
     public Image icon;
     public GameObject bar;
     Image[] manaIcons; //the blue sprites that represent the player's mana; 
     [SerializeField]
-    float maxHealth, maxMana;
+    float maxHealth = 100; 
+
+
     bool isPaused;
     public GameObject pauseScreen;
     public GameObject pauseButton;
@@ -20,18 +22,16 @@ public class PlayerHUD : MonoBehaviour
 
     private void Start()
     {
-        healthbar = GameObject.Find("Fill").GetComponent<Image>();
+        healthbar = GetComponentInChildren<Slider>();
         manaIcons = bar.GetComponentsInChildren<Image>();
         isPaused = false; 
-
-        SetMana(2);
     }
 
     //value should never be set above max health
     public void SetLife(float value)
     {
-        Debug.Log(value);
-        healthbar.fillAmount = value / maxHealth;
+
+        healthbar.value = value;
     }
 
     //value should never be set above max mana
