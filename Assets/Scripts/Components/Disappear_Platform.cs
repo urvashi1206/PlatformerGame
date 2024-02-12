@@ -24,6 +24,7 @@ public class Disappear_Platform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         destroyGameObject = true;
+        spriteRenderer.color = new Color(1.0f, 0.6f, 0.7f, 1.0f);
         StartCoroutine(FadeTo(alphaValue, fadeDelay));
     }
 
