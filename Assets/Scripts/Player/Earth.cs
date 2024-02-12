@@ -7,7 +7,7 @@ using UnityEngine.U2D;
 public class Earth : MonoBehaviour
 {
     public float speed = 10f;
-    public int damage = 10;
+    public int damage = 0;
     public Rigidbody2D rb;
     public GameObject PlatformPrefab; 
     // Start is called before the first frame update

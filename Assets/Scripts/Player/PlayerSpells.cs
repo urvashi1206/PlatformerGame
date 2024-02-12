@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSpells : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class PlayerSpells : MonoBehaviour
     public GameObject EarthProjectile;
 
     public float maxMana = 2;
-    public float maxHealth = 10;
-    public float currentMana; 
+    public float maxHealth = 100;
+    public float currentMana;
     private float currentHealth;
 
     //mana regeneration
@@ -29,19 +30,41 @@ public class PlayerSpells : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentMana = maxMana;
+
+        AddHealth(-10);
     }
     // Update is called once per frame
     void Update()
     {
-        currentMana = Mathf.Clamp(currentMana, 0, maxMana);
-        playerHud.SetMana(currentMana);
 
         //cast the Earth Spell
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             Cast();
         }
 
+    }
+
+    public void AddHealth(float num)
+    {
+
+        currentHealth += num;
+
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene("EndScreen");
+        }
+        Debug.Log(currentHealth);
+        playerHud.SetLife(currentHealth);
+    }
+    public void AddMana(float num)
+    {
+        currentMana += num;
+        currentMana = Mathf.Clamp(currentMana, 0, maxMana);
+
+        playerHud.SetMana(currentMana);
     }
 
     //used to facilitate mana regenearation
@@ -60,7 +83,7 @@ public class PlayerSpells : MonoBehaviour
             if (regen_timer > regenSpeed)
             {
                 regen_timer = 0f;
-                currentMana++;
+                AddMana(1);
 
             }
 
@@ -79,7 +102,7 @@ public class PlayerSpells : MonoBehaviour
             regen_timer = 0f;
 
             Instantiate(EarthProjectile, spellPoint.position, spellPoint.rotation);
-            currentMana--;
+            AddMana(-1);
         }
 
     }
