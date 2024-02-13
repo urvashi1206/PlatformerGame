@@ -23,7 +23,7 @@ public class Fire : MonoBehaviour
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                //enemy.TakeDamage(damage);
             }
             Destroy(gameObject);
         }

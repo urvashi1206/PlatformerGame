@@ -60,32 +60,12 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         currentPoint = pointB.transform;
     }
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if(health < 0)
-        {
-            Die();
-        }
-    }
-    void Die()
-    {
-        Destroy(gameObject);
-    }
-
 
     // Update is called once per frame
     void Update()
     {
         //Check facing direction
-        if (rb.velocity.x > 0)
-        {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        }
-        else
-        {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        }
+        FlipEnemy(rb.velocity.x);
 
         switch (enemyState)
         {
@@ -127,34 +107,18 @@ public class Enemy : MonoBehaviour
                 {
                     currentPoint = currentPoint == pointA ? pointB : pointA;
                 }
-                if (direction1.x >= 0)
-                {
-                    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                }
-                else
-                {
-                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                }
 
-
+                FlipEnemy(direction1.x);
                 break;
 
-
             case EnemyState.Shoot:
-                //For shoot bullets
-
+                //Set velocity to 0
                 rb.velocity = Vector2.zero;
 
+                //Check player location
                 Vector2 direction2 = playerTransform.position - transform.position;
 
-                if (direction2.x >= 0)
-                {
-                    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                }
-                else
-                {
-                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                }
+                FlipEnemy(direction2.x);
 
                 if (playerTransform && (transform.position - playerTransform.position).magnitude >= shootRange)
                 {
@@ -164,11 +128,6 @@ public class Enemy : MonoBehaviour
                     return;
                 }
 
-/*                timer += Time.deltaTime;
-                if (timer > waitingTime)
-                {
-
-                }*/
                 break;
 
             case EnemyState.Melee:
@@ -179,13 +138,6 @@ public class Enemy : MonoBehaviour
                     enemyState = EnemyState.Patrol;
                     return;
                 }
-
-/*                timer += Time.deltaTime;
-                if (timer > waitingTime)
-                {
-                    playerImpact.Invincible(meleeDamage);
-                    timer = 0;
-                }*/
                 
                 break;
 
@@ -230,6 +182,18 @@ public class Enemy : MonoBehaviour
 
         }
 
+    }
+
+    private void FlipEnemy(float directionX)
+    {
+        if (directionX > 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
 
     public void Shoot()
