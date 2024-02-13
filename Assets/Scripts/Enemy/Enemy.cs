@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rb;
 
+    Animator animator;
+
     //Player
     Transform playerTransform;
 
@@ -55,6 +57,7 @@ public class Enemy : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         playerImpact = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerImpact>(); ;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         currentPoint = pointB.transform;
     }
     public void TakeDamage(int damage)
@@ -65,8 +68,6 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
-
-
     void Die()
     {
         Destroy(gameObject);
@@ -76,7 +77,17 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(enemyState)
+        //Check facing direction
+        if (rb.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+
+        switch (enemyState)
         {
             case EnemyState.Patrol:
                 
@@ -94,38 +105,39 @@ public class Enemy : MonoBehaviour
                     case EnemyType.ShootEnemy:
                         if (playerTransform && (transform.position - playerTransform.position).magnitude < shootRange)
                         {
-
+                            animator.SetTrigger("isShoot");
                             enemyState = EnemyState.Shoot;
                             return;
                         }
                         break;
                 }
 
+                if (currentPoint == null)
+                    return;
 
-                //Change face direction
-                Vector2 point = currentPoint.position - transform.position;
-                if (currentPoint == pointB.transform)
+                //Get target position
+                Vector2 direction1 = (currentPoint.position - transform.position).normalized;
+                Vector2 targetPosition = rb.position + direction1 * speed * Time.fixedDeltaTime;
+
+                //Move
+                rb.MovePosition(targetPosition);
+
+                //Check if get correct position
+                if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
                 {
-                    rb.velocity = new Vector2(speed, 0);
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    currentPoint = currentPoint == pointA ? pointB : pointA;
+                }
+                if (direction1.x >= 0)
+                {
+                    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 }
                 else
                 {
-                    rb.velocity = new Vector2(-speed, 0);
-                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 }
 
-                //Move
-                if (Vector2.Distance(transform.position,currentPoint.position) < 0.5f && currentPoint == pointB.transform)
-                {
-                    currentPoint = pointA.transform;
-                }
-                if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointA.transform)
-                {
-                    currentPoint = pointB.transform;
-                }
 
-            break;
+                break;
 
 
             case EnemyState.Shoot:
@@ -133,45 +145,47 @@ public class Enemy : MonoBehaviour
 
                 rb.velocity = Vector2.zero;
 
+                Vector2 direction2 = playerTransform.position - transform.position;
 
-                if (playerTransform && (transform.position - playerTransform.position).magnitude >= shootRange)
+                if (direction2.x >= 0)
                 {
-
-                    enemyState = EnemyState.Patrol;
-                    return;
-                }
-                //Check face direction
-                if (playerTransform && (playerTransform.position - transform.position).x >= 0)
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 }
                 else
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 }
 
-                timer += Time.deltaTime;
+                if (playerTransform && (transform.position - playerTransform.position).magnitude >= shootRange)
+                {
+                    animator.SetTrigger("isRun");
+                    enemyState = EnemyState.Patrol;
+
+                    return;
+                }
+
+/*                timer += Time.deltaTime;
                 if (timer > waitingTime)
                 {
-                    Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
-                    timer = 0;
-                }
+
+                }*/
                 break;
 
             case EnemyState.Melee:
                 //Out of melee range
                 if (playerTransform && (transform.position - playerTransform.position).magnitude >= meleeRange)
                 {
+                    animator.SetTrigger("isRun");
                     enemyState = EnemyState.Patrol;
                     return;
                 }
 
-                timer += Time.deltaTime;
+/*                timer += Time.deltaTime;
                 if (timer > waitingTime)
                 {
                     playerImpact.Invincible(meleeDamage);
                     timer = 0;
-                }
+                }*/
                 
                 break;
 
@@ -199,6 +213,7 @@ public class Enemy : MonoBehaviour
                     }
                     else if (toPlayer.magnitude <= meleeRange)
                     {
+                        animator.SetTrigger("isAttack");
                         enemyState = EnemyState.Melee;
                     }
                     else if (toPlayer.magnitude >= meleeDetectRange)
@@ -209,15 +224,6 @@ public class Enemy : MonoBehaviour
                     // Move towards the player or the closest point
                     rb.velocity = direction * speed;
 
-                    // Adjust facing direction based on movement direction
-                    if (direction.x >= 0)
-                    {
-                        transform.localScale = new Vector3(-1, 1, 1);
-                    }
-                    else
-                    {
-                        transform.localScale = new Vector3(1, 1, 1);
-                    }
                 }
 
                 break;
@@ -226,6 +232,29 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public void Shoot()
+    {
+        Vector3 toPlayer = playerTransform.position - transform.position;
+        Quaternion bulletRotation;
+
+        if (toPlayer.x >= 0)
+        {
+            bulletRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            bulletRotation = Quaternion.Euler(0, 0, 180);
+        }
+
+        Instantiate(bulletPrefab, shootPoint.position, bulletRotation);
+        //timer = 0;
+    }
+
+
+    public void MeleeAttack()
+    {
+        playerImpact.Invincible(meleeDamage);
+    }
 }
 
 
