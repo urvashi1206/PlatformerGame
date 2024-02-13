@@ -4224,7 +4224,7 @@ MonoBehaviour:
   jumpHeight: 14
   isGrounded: 0
   speed: 7
-  animator: {fileID: 0}
+  animator: {fileID: 1001594662}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
