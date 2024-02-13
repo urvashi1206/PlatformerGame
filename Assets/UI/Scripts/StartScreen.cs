@@ -37,7 +37,8 @@ public class StartScreen : MonoBehaviour
         startButton.GetComponent<Button>().onClick.RemoveAllListeners();
         //allows sound to fully play before switching scenes.
         startReady = true;
-        SceneManager.LoadScene(startSceneName);
+        //SceneManager.LoadScene(startSceneName);
+        SceneManager.LoadScene("Playtest2Level");
     }
 
 
