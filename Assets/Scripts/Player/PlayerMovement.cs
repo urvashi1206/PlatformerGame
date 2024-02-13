@@ -25,13 +25,14 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        animator.SetFloat("Speed", rb.velocity.magnitude);
         //keep the camera from rotating
         float dirX = Input.GetAxisRaw("Horizontal");
         //animator.SetFloat("Speed", Mathf.Abs(dirX));
