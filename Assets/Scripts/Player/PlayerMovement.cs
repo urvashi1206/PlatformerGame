@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", rb.velocity.magnitude);
         //keep the camera from rotating
         float dirX = Input.GetAxisRaw("Horizontal");
-        //animator.SetFloat("Speed", Mathf.Abs(dirX));
+        animator.SetFloat("Speed", Mathf.Abs(dirX));
         if (dirX != 0)
         {
             rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
