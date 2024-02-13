@@ -31,6 +31,7 @@ public class PauseScreen : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        playerHUD.TogglePauseGame();
         SceneManager.LoadScene("MainMenu");
     }
 
