@@ -29,7 +29,7 @@ public class Earth : MonoBehaviour
         
         if (collision.gameObject.tag == "Environment"  || collision.gameObject.tag == "Platform")
         {
-            Debug.Log("Wall");
+            //Debug.Log("Wall");
             ///spawn a standable platform where the projectile impacts
             GameObject.Instantiate(PlatformPrefab, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
@@ -38,18 +38,18 @@ public class Earth : MonoBehaviour
 
         if (collision.gameObject.tag == "Target")
         {
-            Debug.Log("Enemy");
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                //enemy.TakeDamage(damage);
+                Debug.Log("Enemy Stunned");
+                enemy.Stunned();
             }
             Destroy(this.gameObject);
         }
 
         if (collision.gameObject.tag == "Bullet") 
         {
-            Debug.Log("Firing Enemy");
+            //Debug.Log("Firing Enemy");
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }

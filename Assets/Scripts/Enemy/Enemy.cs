@@ -50,7 +50,11 @@ public class Enemy : MonoBehaviour
         Shoot,
         Melee,
         ChasePlayer,
+        Stunned,
     }
+
+    private float stunnedTime = 3.0f;
+    private float stunnedTimer = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -180,6 +184,21 @@ public class Enemy : MonoBehaviour
 
                 break;
 
+            case EnemyState.Stunned:
+
+                rb.velocity = Vector2.zero;
+                stunnedTimer += Time.deltaTime;
+                Debug.Log("Stunned ing");
+                if (stunnedTimer >= stunnedTime)
+                {
+                    enemyState = EnemyState.Patrol;
+                    animator.SetTrigger("isRun");
+                }
+                    
+                break;
+
+
+
         }
 
     }
@@ -219,6 +238,14 @@ public class Enemy : MonoBehaviour
     {
         playerImpact.Invincible(meleeDamage);
     }
+
+    public void Stunned()
+    {
+        animator.SetTrigger("isStunned");
+        enemyState = EnemyState.Stunned;
+    }
+
+
 }
 
 
