@@ -16,6 +16,13 @@ public class Spike : MonoBehaviour
         
     }
 
-    
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            PlayerImpact impact = collision.gameObject.GetComponent<PlayerImpact>();
+            impact.Invincible(100.0f);
+        }
+    }
 
 }

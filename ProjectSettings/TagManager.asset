@@ -10,8 +10,6 @@ TagManager:
   - Wall
   - Mana
   - Platform
-  - CheckPoint
-  - Spikes
   layers:
   - Default
   - TransparentFX

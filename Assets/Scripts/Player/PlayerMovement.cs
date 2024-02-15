@@ -9,16 +9,15 @@ public class PlayerMovement : MonoBehaviour
     
     Rigidbody2D rb;
     Camera cam; 
-    public float jumpVelocity = 100f;
+    public float jumpHeight = 100f;
     public bool isGrounded;
     private float jumpCount = 0;
+    private float extraJumps = 1;
     public float speed = 7.0f;
     float jumpCoolDown;
     float facing;
     bool facingRight = true;
     public Animator animator;
-    private Vector3 respawnPoint;
-    private float checkPointCount;
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform feet;
@@ -27,8 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        respawnPoint = transform.position;
-        checkPointCount = 0;
+
     }
 
     // Update is called once per frame
@@ -54,9 +52,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) 
         {
-            if (isGrounded)
+            if (isGrounded || jumpCount < extraJumps)
             {
-                rb.velocity = Vector2.up * jumpVelocity;
+                rb.velocity = new Vector3(0, jumpHeight, 0);
                 jumpCount++;
             }
         }
@@ -89,28 +87,8 @@ public class PlayerMovement : MonoBehaviour
         currenScale.x *= -1;
         gameObject.transform.localScale = currenScale;*/
         transform.Rotate(0f, 180f, 0f);
-    }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Spikes")
-        {
-            if (checkPointCount <= 0)
-            {
-                PlayerImpact impact = gameObject.GetComponent<PlayerImpact>();
-                impact.Invincible(100.0f);
-            }
-            else
-            {
-                transform.position = respawnPoint;
-            }
-        }
-
-        else if (collision.gameObject.tag == "CheckPoint")
-        {
-            checkPointCount++;
-            respawnPoint = transform.position;
-        }
+        
     }
 }
 
