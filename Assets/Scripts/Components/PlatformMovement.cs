@@ -31,7 +31,6 @@ public class PlatformMovement : MonoBehaviour
         {
             collision.gameObject.transform.SetParent(transform);
         }
-        Debug.Log("heheh");
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
