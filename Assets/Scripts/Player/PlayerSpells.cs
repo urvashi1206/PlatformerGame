@@ -38,7 +38,7 @@ public class PlayerSpells : MonoBehaviour
     {
 
         //cast the Earth Spell
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) 
         {
             Cast();
         }

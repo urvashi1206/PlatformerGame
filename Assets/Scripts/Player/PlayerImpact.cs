@@ -26,7 +26,6 @@ public class PlayerImpact : MonoBehaviour
 
     public void Invincible(float damageNum)
     {
-      
         playerSpells.AddHealth(-damageNum);
         StartCoroutine(DamageFlicker());
     }
