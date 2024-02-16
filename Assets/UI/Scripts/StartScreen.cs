@@ -41,6 +41,12 @@ public class StartScreen : MonoBehaviour
         SceneManager.LoadScene("Playtest2Level");
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("End Game");
+    }
+
 
 
 
