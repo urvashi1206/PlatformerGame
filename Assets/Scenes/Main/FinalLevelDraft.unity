@@ -640,7 +640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6860390894373680545, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
       propertyPath: m_TagString
-      value: Environment
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -698,6 +698,10 @@ PrefabInstance:
     - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
       propertyPath: m_Name
       value: Disappearing_Platform (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1249,6 +1253,10 @@ PrefabInstance:
     - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
       propertyPath: m_Name
       value: Disappearing_Platform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3101,7 +3109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6860390894373680545, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
       propertyPath: m_TagString
-      value: Environment
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3430,10 +3438,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 2106771955}
     m_Modifications:
     - target: {fileID: 410912040334963882, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 410912040334963882, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.37
       objectReference: {fileID: 0}
@@ -3476,10 +3480,6 @@ PrefabInstance:
     - target: {fileID: 6860390894373680545, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
       propertyPath: m_Name
       value: Spike
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860390894373680545, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
-      propertyPath: m_TagString
-      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6187,6 +6187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Disappearing_Platform (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6212,6 +6216,7 @@ GameObject:
   - component: {fileID: 1001594659}
   - component: {fileID: 1001594661}
   - component: {fileID: 1001594662}
+  - component: {fileID: 1001594663}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -6407,7 +6412,7 @@ Transform:
   m_GameObject: {fileID: 1001594650}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.849998, y: -16.75, z: 0}
+  m_LocalPosition: {x: 6.8, y: -1, z: 0}
   m_LocalScale: {x: 4.2161508, y: 4.6789293, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6584,6 +6589,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1001594663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001594650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3be29f44ddc5d4468c783ea63641f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 3.5
 --- !u!1001 &1002590095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8010,6 +8028,10 @@ PrefabInstance:
     - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
       propertyPath: m_Name
       value: Disappearing_Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9811,6 +9833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Disappearing_Platform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10084,7 +10110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6860390894373680545, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
       propertyPath: m_TagString
-      value: Environment
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10535,7 +10561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6860390894373680545, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
       propertyPath: m_TagString
-      value: Environment
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11071,7 +11097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6860390894373680545, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
       propertyPath: m_TagString
-      value: Environment
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11134,6 +11160,10 @@ PrefabInstance:
     - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
       propertyPath: m_Name
       value: Disappearing_Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8897865711766057971, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
       propertyPath: fadeDelay
@@ -11398,6 +11428,10 @@ PrefabInstance:
     - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
       propertyPath: m_Name
       value: Disappearing_Platform (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449629313534566819, guid: bfdf3166a9ed71a47b7ea0daba2a42b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12071,7 +12105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6860390894373680545, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
       propertyPath: m_TagString
-      value: Environment
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13447,7 +13481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6860390894373680545, guid: 90b0aa4bc9385fa4295a792858892c93, type: 3}
       propertyPath: m_TagString
-      value: Environment
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
