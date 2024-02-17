@@ -11,7 +11,7 @@ public class EndMenu : MonoBehaviour
     }
     public void GoToGame()
     {
-        SceneManager.LoadScene("Playtest2Level");
+        SceneManager.LoadScene("FinalLevelDraft");
     }
 
 

@@ -41,10 +41,10 @@ public class Disappear_Platform : MonoBehaviour
         }
         
         // Reset for the next fade-in
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
 
-        spriteRenderer.material.color = startColor;
+        /*spriteRenderer.material.color = startColor;
 
         // Fade in
         while (t < 1f)
@@ -54,7 +54,7 @@ public class Disappear_Platform : MonoBehaviour
             yield return null;
         }
         //yield return new WaitForSeconds(0.1f);
-        gameObject.SetActive(true); // Activate the GameObject after fading in
+        gameObject.SetActive(true); // Activate the GameObject after fading in*/
     }
 }
 
