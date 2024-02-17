@@ -12,11 +12,19 @@ public class StartScreen : MonoBehaviour
     [SerializeField]
     GameObject startButton;
 
+    public GameObject introCanvasObject;
+    //Canvas introCanvas;
+
     public string startSceneName;
     // Start is called before the first frame update
     void Start()
     {
-        _audioPlayer = startButton.GetComponent<AudioSource>();    
+        if(startButton)
+        {
+            _audioPlayer = startButton.GetComponent<AudioSource>();
+        }
+        
+        //introCanvas = introCanvasObject.GetComponent<Canvas>();
     }
 
     // Update is called once per frame
@@ -39,6 +47,11 @@ public class StartScreen : MonoBehaviour
         startReady = true;
         //SceneManager.LoadScene(startSceneName);
         SceneManager.LoadScene("Playtest2Level");
+    }
+
+    public void StartIntro()
+    {
+        introCanvasObject.SetActive(true);
     }
 
     public void QuitGame()
