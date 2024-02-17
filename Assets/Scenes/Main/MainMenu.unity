@@ -1029,7 +1029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 1500394994}
   introCanvasObject: {fileID: 1809010593}
-  startSceneName: LevelScene
+  startSceneName: FinalLevelDraft
 --- !u!1 &1774338460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 0}
   introCanvasObject: {fileID: 0}
-  startSceneName: LevelScene
+  startSceneName: FinalLevelDraft
 --- !u!114 &1809010595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1435,9 +1435,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'jsdgyhfjakhfkjashfalshfasdjklfhakjlhfdajskhfjash
-
-'
+  m_text: "Foolish Baron...now I need to get out of this dusty old fortess that he
+    calls a castle. \n\nI ought to be careful of the monsters that roam the halls.
+    My Earth magic should come in handy for them...\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 52b218e203c494249b3515f1ac057d1e, type: 2}
   m_sharedMaterial: {fileID: -5604179916700554847, guid: 52b218e203c494249b3515f1ac057d1e, type: 2}

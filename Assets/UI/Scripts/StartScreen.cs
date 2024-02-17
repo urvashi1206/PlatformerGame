@@ -46,7 +46,7 @@ public class StartScreen : MonoBehaviour
         //allows sound to fully play before switching scenes.
         startReady = true;
         //SceneManager.LoadScene(startSceneName);
-        SceneManager.LoadScene("Playtest2Level");
+        SceneManager.LoadScene("FinalLevelDraft");
     }
 
     public void StartIntro()
